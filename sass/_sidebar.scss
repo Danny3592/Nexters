@@ -2,13 +2,21 @@
   background-color: $color-primary;
   grid-column: sidebar-start/sidebar-end;
   grid-row: 1/-1;
-  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (max-width: $bp-largest) {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    justify-content: end;
+    align-items: center;
+  }
 }
 
 .nav-btn {
-  position: absolute;
-  top: 5rem;
-  left: 50%;
+  margin-left: 4rem;
+  margin-top: 4rem;
   border: none;
   border-radius: 0;
   height: 2px;
@@ -33,5 +41,18 @@
   &::after:hover,
   &::before:hover {
     cursor: pointer;
+  }
+
+  @media only screen and (max-width: $bp-largest) {
+    margin-top: 0;
+    margin-left: 0;
+
+
+    &::before {
+      transform: translateY(-1.1rem);
+    }
+    &::after {
+      transform: translateY(1.1rem);
+    }
   }
 }
